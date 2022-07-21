@@ -1,0 +1,58 @@
+{
+    "version": 1,
+    "author": "Mahesh Kumar",
+    "editor": "wokwi",
+    "parts": [
+      {
+        "type": "wokwi-esp32-devkit-v1",
+        "id": "esp",
+        "top": 0,
+        "left": 0,
+        "attrs": { "env": "micropython-20220618-v1.19.1" }
+      },
+      { "type": "wokwi-dht22", "id": "dht1", "top": -20.15, "left": -115.17, "attrs": {} },
+      {
+        "type": "wokwi-buzzer",
+        "id": "bz1",
+        "top": -122.81,
+        "left": 216.67,
+        "attrs": { "volume": "0.1" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": -108.82,
+        "left": 106,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-buzzer",
+        "id": "bz2",
+        "top": -123.48,
+        "left": 146,
+        "attrs": { "volume": "0.1" }
+      },
+      {
+        "type": "wokwi-pushbutton",
+        "id": "btn1",
+        "top": 163.15,
+        "left": 181.06,
+        "attrs": { "color": "red" }
+      }
+    ],
+    "connections": [
+      [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+      [ "dht1:GND", "esp:GND.2", "black", [ "v0" ] ],
+      [ "dht1:VCC", "esp:VIN", "red", [ "v0" ] ],
+      [ "dht1:SDA", "esp:D13", "green", [ "v0" ] ],
+      [ "led1:C", "esp:GND.1", "green", [ "v0" ] ],
+      [ "led1:A", "esp:D15", "green", [ "v0" ] ],
+      [ "bz1:2", "esp:GND.1", "green", [ "v0" ] ],
+      [ "bz1:1", "esp:D2", "green", [ "v0" ] ],
+      [ "bz2:2", "esp:GND.1", "green", [ "v0" ] ],
+      [ "bz2:1", "esp:D4", "green", [ "v0" ] ],
+      [ "btn1:2.l", "esp:GND.1", "green", [ "h0" ] ],
+      [ "btn1:1.l", "esp:D18", "green", [ "h0" ] ]
+    ]
+  }
